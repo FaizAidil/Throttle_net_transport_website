@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan Sewa Mobil Throttle Net Transport</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Logo.png" type="image/x-icon">
+</head>
+<body>
+    <div class="back-home">
+        <button class="kembali" onclick="window.location.href='index.html';">Kembali ke Menu Utama</button>
+    </div> 
+
+    <section id="form-pemesanan">
+        <div class="container">
+          <h2 class="text-center">Pemesanan Sewa Mobil <br> <img src="Logo.png" alt="logo"> </h2>
+          <form action="submit_order.php" method="POST">
+            <div class="mb-3">
+              <label for="name" class="form-label">Nama Lengkap</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Nomor Telepon</label>
+              <input type="tel" class="form-control" id="phone" name="phone" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Pilih Mobil</label>
+              <div id="car" class="car-box"></div> 
+              <input type="hidden" name="car" id="car-input"> <!-- Input tersembunyi -->
+            </div>
+            <div class="mb-3">
+              <label for="date" class="form-label">Tanggal Sewa</label>
+              <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+            <div class="mb-3">
+              <label for="duration" class="form-label">Durasi (Hari)</label>
+              <input type="number" class="form-control" id="duration" name="duration" required>
+            </div>
+            <button type="submit" class="btn">Pesan Sekarang</button>
+          </form>
+        </div>
+      </section>
+  
+      <script>
+        // Fungsi untuk mendapatkan nilai parameter dari URL
+        function getParameterByName(name) {
+          const urlParams = new URLSearchParams(window.location.search);
+          return urlParams.get(name);
+        }
+      
+        // Ambil parameter 'car' dari URL
+        const carName = getParameterByName('car');
+      
+        // Jika ada nilai 'car', tampilkan nama mobil dalam teks biasa
+        if (carName) {
+          const carDisplay = document.querySelector('#car');
+          const carInput = document.querySelector('#car-input'); // Input tersembunyi
+          carDisplay.textContent = carName; // Tampilkan nama mobil
+          carInput.value = carName; // Isi input tersembunyi
+        }
+      </script>
+</body>
+</html>
