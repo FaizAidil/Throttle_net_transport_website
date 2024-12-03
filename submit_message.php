@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = $_POST['message'];
 
     // Menyisipkan data ke dalam tabel messages
-    $sql = "INSERT INTO messages (name, email, message, created_at) 
+    $sql = "INSERT INTO pesan (name, email, pesan, tanggal) 
             VALUES ('$name', '$email', '$message', NOW())";
 
     if ($conn->query($sql) === TRUE) {

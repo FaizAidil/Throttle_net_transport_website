@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
     if ($conn->query($sql) === TRUE) {
         echo "<script>
             alert('Data berhasil dihapus!');
-            window.location.href = 'view_orders.php';
+            window.location.href = 'lihat_order.php';
         </script>";
     } else {
         echo "Error: " . $conn->error;
